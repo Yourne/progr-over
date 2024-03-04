@@ -1,3 +1,4 @@
+import { Card, TextInput, Button } from "flowbite-react";
 import { useState } from "react";
 
 const bodyweight = 77;
@@ -62,39 +63,43 @@ export default function Recorder({
   }
 
   return (
-    <>
-      <p> {exerName} </p>
-      {sets.map((set, index) => (
-        <div key={index}>
-          reps
-          <input
-            id={"reps"}
-            value={set.reps}
-            onChange={(e) => handleChangeSet(e, index)}
-            type="number"
-          />
-          kg
-          <input
-            id={"weight"}
-            value={set.weight}
-            onChange={(e) => handleChangeSet(e, index)}
-            type="number"
-          />
-          min
-          <input
-            id={"min"}
-            value={set.min}
-            onChange={(e) => handleChangeSet(e, index)}
-            type="number"
-          />
-          <button onClick={addSet} disabled={toggleButton[index]}>
-            add set
-          </button>
+    <Card className="max-w-sm">
+      <article className="format dark:format-invert mx-auto">
+        <p> {exerName} </p>
+        {sets.map((set, index) => (
+          <div key={index}>
+            reps
+            <TextInput
+              id={"reps"}
+              value={set.reps}
+              onChange={(e) => handleChangeSet(e, index)}
+              type="number"
+              className="max-w-sm"
+            />
+            kg
+            <TextInput
+              id={"weight"}
+              value={set.weight}
+              onChange={(e) => handleChangeSet(e, index)}
+              type="number"
+              className="max-w-sm"
+            />
+            min
+            <TextInput
+              id={"min"}
+              value={set.min}
+              onChange={(e) => handleChangeSet(e, index)}
+              type="number"
+            />
+            <Button onClick={addSet} disabled={toggleButton[index]}>
+              add set
+            </Button>
+          </div>
+        ))}
+        <div>
+          <Button onClick={handleSubmitExercise}> Submit </Button>
         </div>
-      ))}
-      <div>
-        <button onClick={handleSubmitExercise}> Submit </button>
-      </div>
-    </>
+      </article>
+    </Card>
   );
 }

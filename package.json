@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.7.2",
     "mongodb": "^6.3.0",
     "next": "14.1.0",
     "react": "^18",
@@ -18,7 +20,9 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "flowbite-typography": "^1.0.3",
     "postcss": "^8",
+    "postcss-import": "^16.0.1",
     "tailwindcss": "^3.3.0"
   }
 }

@@ -1,4 +1,5 @@
 // import Exercise from "./components/Exercise";
+import { TextInput, Button } from "flowbite-react";
 
 export default function SearchExercise({
   query,
@@ -7,13 +8,14 @@ export default function SearchExercise({
   handleSearch,
 }) {
   return (
-    <>
-      <input
+    <div className="flex flex-row">
+      <TextInput
         id="search"
         value={query}
         onChange={(e) => updateQuery(e.target.value)}
+        className="max-w-sm"
       />
-      <button onClick={(e) => handleSearch(e)}> search </button>
-    </>
+      <Button onClick={(e) => handleSearch(e)}> search </Button>
+    </div>
   );
 }

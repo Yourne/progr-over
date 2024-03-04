@@ -51,11 +51,11 @@ export default function Home() {
 
   function CurrentExercise(props) {
     return (
-      <>
+      <div className="bg-inherit">
         <Recorder {...props} />
         <p> last time: </p>
         <Exercise {...props.exer} />
-      </>
+      </div>
     );
   }
 
@@ -64,22 +64,22 @@ export default function Home() {
   }
 
   return (
-    <>
+    <main className="format: dark:format-invert">
       <h1> Progressive Overloading </h1>
       <SearchExercise
         query={query}
         updateQuery={updateQuery}
         handleSearch={handleSearch}
       />
-      {queryStatus === "DATANOTFOUND" ? (
+      {queryStatus === "DATANOTFOUND" && (
         <Recorder
           updateQuery={updateQuery}
           exerName={query}
           appendExercise={appendExercise}
           updateQueryStatusToUnperformed={updateQueryStatusToUnperformed}
         />
-      ) : null}
-      {queryStatus === "DATAFOUND" ? (
+      )}
+      {queryStatus === "DATAFOUND" && (
         <CurrentExercise
           exer={exer}
           updateQuery={updateQuery}
@@ -87,15 +87,15 @@ export default function Home() {
           appendExercise={appendExercise}
           updateQueryStatusToUnperformed={updateQueryStatusToUnperformed}
         />
-      ) : null}
+      )}
       <div>
-        {exerciseStack.length > 0 ? (
+        {exerciseStack.length > 0 && (
           <>
             <h2> Workout </h2>
             <WorkOut exerciseStack={exerciseStack} />
           </>
-        ) : null}
+        )}
       </div>
-    </>
+    </main>
   );
 }
