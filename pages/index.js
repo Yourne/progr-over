@@ -51,9 +51,9 @@ export default function Home() {
 
   function CurrentExercise(props) {
     return (
-      <div className="bg-inherit">
+      <div>
         <Recorder {...props} />
-        <p> last time: </p>
+        <p className="mt-3"> last time: </p>
         <Exercise {...props.exer} />
       </div>
     );
@@ -64,8 +64,11 @@ export default function Home() {
   }
 
   return (
-    <main className="format: dark:format-invert">
-      <h1> Progressive Overloading </h1>
+    <main className="p-6">
+      <h1 className="text-xl font-medium dark:text-white">
+        {" "}
+        Progressive Overloading{" "}
+      </h1>
       <SearchExercise
         query={query}
         updateQuery={updateQuery}
